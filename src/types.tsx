@@ -4,3 +4,9 @@ export type MovieType = {
   openingText: string;
   releaseDate: string;
 };
+
+export type MovieNoIdType = {
+  title: string;
+  openingText: string;
+  releaseDate: string;
+};

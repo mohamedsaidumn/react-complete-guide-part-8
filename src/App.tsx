@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect, ReactNode } from "react";
 import { useCallback } from "react";
 import MoviesList from "./components/MoviesList";
+import AddMovie from "./components/AddMovie";
 import { MovieType } from "./types";
+import { MovieNoIdType } from "./types";
 import "./App.css";
 
 function App() {
@@ -35,6 +37,10 @@ function App() {
     setIsLoading(false);
   }, []);
 
+  function addMovieHandler(movie: MovieNoIdType) {
+    console.log(movie);
+  }
+
   useEffect(() => {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
@@ -55,6 +61,9 @@ function App() {
 
   return (
     <React.Fragment>
+      <section>
+        <AddMovie onAddMovie={addMovieHandler} />
+      </section>
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
